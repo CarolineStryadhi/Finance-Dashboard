@@ -29,9 +29,9 @@ print(income)
 c1,c2,c3, c4 = st.columns(4)
 with c1:
     #calculate income revenue average
-    income_last_year = income[1:13].astype(float).mean()
+    income_last_year = income[13].astype(float)
     print(income_last_year)
-    income_this_year = income[13:].astype(float).mean()
+    income_this_year = income[24].astype(float)
     print(income_this_year)
 
     #Pisahkan data tahun lalu dan tahun ini ke beda variabel
@@ -54,24 +54,24 @@ with c1:
     #data akan dilabel dan dichart di dalam line char
     st.line_chart(data=year)
 
-#     #calculate operating expenses
-#     operating_Expenses_last_year = Total_operating_Expenses[1:13].astype(float).mean()
-#     operating_Expenses_this_year = Total_operating_Expenses[13:].astype(float).mean()
-#     curr_expenses_change_percent = round(((operating_Expenses_this_year - operating_Expenses_last_year) / operating_Expenses_last_year * 100), 2)
-#     curr_expenses_change_percent = str(curr_expenses_change_percent) + '%' + ' vs. prior year'
-#     st.metric("OPERATING EXPENSES", round(operating_Expenses_this_year, 2), delta=curr_expenses_change_percent)
+    #calculate operating expenses
+    operating_Expenses_last_year = Total_operating_Expenses[13].astype(float)
+    operating_Expenses_this_year = Total_operating_Expenses[24].astype(float)
+    curr_expenses_change_percent = round(((operating_Expenses_this_year - operating_Expenses_last_year) / operating_Expenses_last_year * 100), 2)
+    curr_expenses_change_percent = str(curr_expenses_change_percent) + '%' + ' vs. prior year'
+    st.metric("OPERATING EXPENSES", round(operating_Expenses_this_year, 2), delta=curr_expenses_change_percent)
 
-#     #calculate quick ratio
-#     quick_ratio_last_year = quick_ratio[1:13].astype(float).mean()
-#     quick_ratio_this_year = quick_ratio[13:].astype(float).mean()
-#     curr_quickratio_change_percent = round(((quick_ratio_this_year - quick_ratio_last_year)/ quick_ratio_last_year * 100), 2)
-#     curr_quickratio_change_percent = str(curr_quickratio_change_percent) + ' vs. prior year'
-#     st.metric("QUICK RATIO", round(quick_ratio_this_year, 2), delta=curr_quickratio_change_percent)
+    #calculate quick ratio
+    quick_ratio_last_year = quick_ratio[13].astype(float)
+    quick_ratio_this_year = quick_ratio[24].astype(float)
+    curr_quickratio_change_percent = round(((quick_ratio_this_year - quick_ratio_last_year)/ quick_ratio_last_year * 100), 2)
+    curr_quickratio_change_percent = str(curr_quickratio_change_percent) + ' vs. prior year'
+    st.metric("QUICK RATIO", round(quick_ratio_this_year, 2), delta=curr_quickratio_change_percent)
    
 with c2:
     #calculate income revenue average
-    income_last_year = cost_of_good_sold[1:13].astype(float).mean()
-    income_this_year = cost_of_good_sold[13:].astype(float).mean()
+    income_last_year = cost_of_good_sold[13].astype(float)
+    income_this_year = cost_of_good_sold[24].astype(float)
 
     # Generate some data
     last_year = list(cost_of_good_sold[1:13])
@@ -94,26 +94,26 @@ with c2:
 
     # data = pd.DataFrame({'last_year': last_year['Income'], 'current_year': current_year['Income']})
     # print(data)
-    # Create a line chart
+    # #Create a line chart
     # c2.line_chart(data)
-#     #operating_profit
-#     ebit_sold_last_year = operating_profit[1:13].astype(float).mean()
-#     ebit_sold_this_year = operating_profit[13:].astype(float).mean()
-#     ebit_sold_change_percent = round(((ebit_sold_this_year - ebit_sold_last_year) / ebit_sold_last_year * 100), 1)
-#     ebit_sold_change_percent = str(ebit_sold_change_percent) + '%' + ' vs. prior year'
-#     st.metric("EBIT", round(ebit_sold_this_year, 2),delta=ebit_sold_change_percent)
+    # #operating_profit
+    # ebit_sold_last_year = operating_profit[13].astype(float)
+    # ebit_sold_this_year = operating_profit[24].astype(float)
+    # ebit_sold_change_percent = round(((ebit_sold_this_year - ebit_sold_last_year) / ebit_sold_last_year * 100), 1)
+    # ebit_sold_change_percent = str(ebit_sold_change_percent) + '%' + ' vs. prior year'
+    # st.metric("EBIT", round(ebit_sold_this_year, 2),delta=ebit_sold_change_percent)
 
-#     #current ratio
-#     curr_ratio_last_year = curr_ratio[1:13].astype(float).mean()
-#     curr_ratio_this_year = curr_ratio[13:].astype(float).mean()
-#     curr_ratiochange_percent = round(((curr_ratio_this_year - curr_ratio_last_year) / curr_ratio_last_year * 100), 1)
-#     curr_ratiochange_percent = str(curr_ratiochange_percent) + '%' + ' vs. prior year'
-#     st.metric("CURRENT RATIO", round(curr_ratio_this_year, 2),delta=curr_ratiochange_percent)
+    # #current ratio
+    # curr_ratio_last_year = curr_ratio[13].astype(float)
+    # curr_ratio_this_year = curr_ratio[24].astype(float)
+    # curr_ratiochange_percent = round(((curr_ratio_this_year - curr_ratio_last_year) / curr_ratio_last_year * 100), 1)
+    # curr_ratiochange_percent = str(curr_ratiochange_percent) + '%' + ' vs. prior year'
+    # st.metric("CURRENT RATIO", round(curr_ratio_this_year, 2),delta=curr_ratiochange_percent)
 
 with c3:
     #calculate income revenue average
-    income_last_year = gross_profit[1:13].astype(float).mean()
-    income_this_year = gross_profit[13:].astype(float).mean()
+    income_last_year = gross_profit[13].astype(float)
+    income_this_year = gross_profit[24].astype(float)
 
     # Generate some data
     last_year = list(gross_profit[1:13])
@@ -132,17 +132,19 @@ with c3:
     st.metric("Gross Profit", round(income_this_year, 2),delta=curr_change_percent)
 
     st.line_chart(data=year)
+
+####################################################################################################
 # with c3:
 #     #gross profit  
-#     gross_profit_last_year = gross_profit[1:13].astype(float).mean()
-#     gross_profit_this_year = gross_profit[13:].astype(float).mean()
+#     gross_profit_last_year = gross_profit[13].astype(float)
+#     gross_profit_this_year = gross_profit[24].astype(float)
 #     gross_profit_change_percent = round(((gross_profit_this_year - gross_profit_last_year) / gross_profit_last_year * 100), 1)
 #     gross_profit_change_percent = str(gross_profit_change_percent) + '%' + ' vs. prior year'
 #     st.metric("GROSS PROFIT", round(gross_profit_this_year, 2),delta=gross_profit_change_percent)
 
 #     #net profit
-#     net_profit_last_year = net_profit[1:13].astype(float).mean()
-#     net_profit_this_year = net_profit[13:].astype(float).mean()
+#     net_profit_last_year = net_profit[13].astype(float)
+#     net_profit_this_year = net_profit[24].astype(float)
 #     net_profit_change_percent = round(((ebit_sold_this_year - ebit_sold_last_year) / ebit_sold_last_year * 100), 1)
 #     net_profit_change_percent = str(ebit_sold_change_percent) + '%' + ' vs. prior year'
 #     st.metric("NET PROFIT", round(ebit_sold_this_year, 2),delta=ebit_sold_change_percent)
@@ -153,11 +155,11 @@ with c3:
 #     account_receivable_change_percent = round(((account_receivable_this_year - account_receivable_last_year) / account_receivable_last_year * 100), 1)
 #     account_receivable_change_percent = str(account_receivable_change_percent) + '%' + ' vs. prior year'
 #     st.metric("ACCOUNT RECEIVABLE", round(account_receivable_this_year, 2),delta=account_receivable_change_percent)
-
+####################################################################################################
 with c4:
     #calculate income revenue average
-    income_last_year = Total_operating_Expenses[1:13].astype(float).mean()
-    income_this_year = Total_operating_Expenses[13:].astype(float).mean()
+    income_last_year = Total_operating_Expenses[13].astype(float)
+    income_this_year = Total_operating_Expenses[24].astype(float)
 
     # Generate some data
     last_year = list(Total_operating_Expenses[1:13])
@@ -208,8 +210,8 @@ with c4:
 c5, c6, c7, c8 = st.columns(4)
 with c5:
     #calculate income revenue average
-    income_last_year = operating_profit[1:13].astype(float).mean()
-    income_this_year = operating_profit[13:].astype(float).mean()
+    income_last_year = operating_profit[13].astype(float)
+    income_this_year = operating_profit[24].astype(float)
 
     # Generate some data
     last_year = list(operating_profit[1:13])
@@ -231,8 +233,8 @@ with c5:
 
 with c6:
     #calculate income revenue average
-    income_last_year = taxes[1:13].astype(float).mean()
-    income_this_year = taxes[13:].astype(float).mean()
+    income_last_year = taxes[13].astype(float)
+    income_this_year = taxes[24].astype(float)
 
     # Generate some data
     last_year = list(taxes[1:13])
@@ -254,8 +256,8 @@ with c6:
 
 with c7:
     #calculate income revenue average
-    income_last_year = net_profit[1:13].astype(float).mean()
-    income_this_year = net_profit[13:].astype(float).mean()
+    income_last_year = net_profit[13].astype(float)
+    income_this_year = net_profit[24].astype(float)
 
     # Generate some data
     last_year = list(net_profit[1:13])
@@ -277,8 +279,8 @@ with c7:
 
 with c8:
     #calculate income revenue average
-    income_last_year = expenses[1:13].astype(float).mean()
-    income_this_year = expenses[13:].astype(float).mean()
+    income_last_year = expenses[13].astype(float)
+    income_this_year = expenses[24].astype(float)
 
     # Generate some data
     last_year = list(expenses[1:13])
@@ -301,8 +303,8 @@ with c8:
 c9, c10, c11, c12 = st.columns(4)
 with c9:
     #calculate income revenue average
-    income_last_year = cash_at_eom[1:13].astype(float).mean()
-    income_this_year = cash_at_eom[13:].astype(float).mean()
+    income_last_year = cash_at_eom[13].astype(float)
+    income_this_year = cash_at_eom[24].astype(float)
 
     # Generate some data
     last_year = list(cash_at_eom[1:13])
@@ -324,8 +326,8 @@ with c9:
 
 with c10:
     #calculate income revenue average
-    income_last_year = quick_ratio[1:13].astype(float).mean()
-    income_this_year = quick_ratio[13:].astype(float).mean()
+    income_last_year = quick_ratio[13].astype(float)
+    income_this_year = quick_ratio[24].astype(float)
 
     # Generate some data
     last_year = list(quick_ratio[1:13])
@@ -347,8 +349,8 @@ with c10:
 
 with c11:
     #calculate income revenue average
-    income_last_year = curr_ratio[1:13].astype(float).mean()
-    income_this_year = curr_ratio[13:].astype(float).mean()
+    income_last_year = curr_ratio[13].astype(float)
+    income_this_year = curr_ratio[24].astype(float)
 
     # Generate some data
     last_year = list(curr_ratio[1:13])
@@ -370,8 +372,8 @@ with c11:
 
 with c12:
     #calculate income revenue average
-    income_last_year = account_receivable[1:13].astype(float).mean()
-    income_this_year = account_receivable[13:].astype(float).mean()
+    income_last_year = account_receivable[13].astype(float)
+    income_this_year = account_receivable[24].astype(float)
 
     # Generate some data
     last_year = list(account_receivable[1:13])
@@ -394,8 +396,8 @@ with c12:
 c13, c14, c15, c16 = st.columns(4)
 with c13:
     #calculate income revenue average
-    income_last_year = account_payable[1:13].astype(float).mean()
-    income_this_year = account_payable[13:].astype(float).mean()
+    income_last_year = account_payable[13].astype(float)
+    income_this_year = account_payable[24].astype(float)
 
     # Generate some data
     last_year = list(account_payable[1:13])
