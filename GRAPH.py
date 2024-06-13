@@ -150,8 +150,8 @@ with c3:
 #     st.metric("NET PROFIT", round(ebit_sold_this_year, 2),delta=ebit_sold_change_percent)
 
 #     #acount receivable
-#     account_receivable_last_year = account_receivable[1:13].astype(float).mean()
-#     account_receivable_this_year = account_receivable[13:].astype(float).mean()
+#     account_receivable_last_year = account_receivable[13].astype(float)
+#     account_receivable_this_year = account_receivable[24].astype(float)
 #     account_receivable_change_percent = round(((account_receivable_this_year - account_receivable_last_year) / account_receivable_last_year * 100), 1)
 #     account_receivable_change_percent = str(account_receivable_change_percent) + '%' + ' vs. prior year'
 #     st.metric("ACCOUNT RECEIVABLE", round(account_receivable_this_year, 2),delta=account_receivable_change_percent)
@@ -178,35 +178,37 @@ with c4:
     st.metric("Total_operating_Expenses", round(income_this_year, 2),delta=curr_change_percent)
 
     st.line_chart(data=year)
-# with c4:
-#     #gross profit margin
-#     total_revenue = income[1:13].astype(float).sum()
-#     Cost_of_good_solds = cost_of_good_sold[1:13].astype(float).sum()
-#     gross_profit_margin_last_year = round((((total_revenue - Cost_of_good_solds) / total_revenue)* 100), 1)
+########################################################################################################################################################################
+with c4:
+    #gross profit margin
+    total_revenue = income[1:13].astype(float).sum()
+    Cost_of_good_solds = cost_of_good_sold[1:13].astype(float).sum()
+    gross_profit_margin_last_year = round((((total_revenue - Cost_of_good_solds) / total_revenue)* 100), 1)
 
-#     total_revenue_this_year = income[13:].astype(float).sum()
-#     Cost_of_good_solds_this_year = cost_of_good_sold[13:].astype(float).sum()
-#     gross_profit_margin_this_year = round((((total_revenue_this_year - Cost_of_good_solds_this_year) / total_revenue_this_year)* 100), 1)
-#     gross_profit_margin_change_percent = round(((gross_profit_margin_this_year - gross_profit_margin_last_year) / gross_profit_margin_last_year * 100), 1)
-#     gross_profit_margin_change_percent = str(gross_profit_margin_change_percent) + '%' + ' vs. prior year'
-#     st.metric("GROSS PROFIT MARGIN", round(gross_profit_margin_this_year, 2),delta=gross_profit_margin_change_percent)
+    total_revenue_this_year = income[13:].astype(float).sum()
+    Cost_of_good_solds_this_year = cost_of_good_sold[13:].astype(float).sum()
+    gross_profit_margin_this_year = round((((total_revenue_this_year - Cost_of_good_solds_this_year) / total_revenue_this_year)* 100), 1)
+    gross_profit_margin_change_percent = round(((gross_profit_margin_this_year - gross_profit_margin_last_year) / gross_profit_margin_last_year * 100), 1)
+    gross_profit_margin_change_percent = str(gross_profit_margin_change_percent) + '%' + ' vs. prior year'
+    st.metric("GROSS PROFIT MARGIN", round(gross_profit_margin_this_year, 2),delta=gross_profit_margin_change_percent)
 
-#     #net profit margin
-#     Net_income = net_profit[1:13].astype(float).sum()
-#     Net_income_this_year = net_profit[13:].astype(float).sum()
+    #net profit margin
+    Net_income = net_profit[1:13].astype(float).sum()
+    Net_income_this_year = net_profit[13:].astype(float).sum()
     
-#     net_profit_margin_last_year = round(((Net_income / total_revenue) * 100), 1)
-#     net_profit_margin_this_year = round(((Net_income_this_year / total_revenue_this_year) * 100), 1)
-#     net_profit_margin_change_percent = round(((net_profit_margin_this_year - net_profit_margin_last_year) / net_profit_margin_last_year * 100), 1)
-#     net_profit_margin_change_percent = str(net_profit_margin_change_percent) + '%' + ' vs. prior year'
-#     st.metric("NET PROFIT MARGIN", round(net_profit_margin_this_year, 2),delta=net_profit_margin_change_percent)
+    net_profit_margin_last_year = round(((Net_income / total_revenue) * 100), 1)
+    net_profit_margin_this_year = round(((Net_income_this_year / total_revenue_this_year) * 100), 1)
+    net_profit_margin_change_percent = round(((net_profit_margin_this_year - net_profit_margin_last_year) / net_profit_margin_last_year * 100), 1)
+    net_profit_margin_change_percent = str(net_profit_margin_change_percent) + '%' + ' vs. prior year'
+    st.metric("NET PROFIT MARGIN", round(net_profit_margin_this_year, 2),delta=net_profit_margin_change_percent)
 
-#     #account payable
-#     account_payable_last_year = account_payable[1:13].astype(float).mean()
-#     account_payable_this_year = account_payable[13:].astype(float).mean()
-#     account_payable_change_percent = round(((account_payable_this_year - account_payable_last_year) / account_payable_last_year * 100), 1)
-#     account_payable_change_percent = str(account_payable_change_percent) + '%' + ' vs. prior year'
-#     st.metric("ACCOUNT PAYABLE", round(account_payable_this_year, 2),delta=account_payable_change_percent)
+    #account payable
+    account_payable_last_year = account_payable[13].astype(float)
+    account_payable_this_year = account_payable[24].astype(float)
+    account_payable_change_percent = round(((account_payable_this_year - account_payable_last_year) / account_payable_last_year * 100), 1)
+    account_payable_change_percent = str(account_payable_change_percent) + '%' + ' vs. prior year'
+    st.metric("ACCOUNT PAYABLE", round(account_payable_this_year, 2),delta=account_payable_change_percent)
+########################################################################################################################################################################
 c5, c6, c7, c8 = st.columns(4)
 with c5:
     #calculate income revenue average
