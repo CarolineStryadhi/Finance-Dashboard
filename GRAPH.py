@@ -92,23 +92,23 @@ with c2:
     st.line_chart(data=year)
 
 
-    # data = pd.DataFrame({'last_year': last_year['Income'], 'current_year': current_year['Income']})
-    # print(data)
-    # #Create a line chart
-    # c2.line_chart(data)
-    # #operating_profit
-    # ebit_sold_last_year = operating_profit[13].astype(float)
-    # ebit_sold_this_year = operating_profit[24].astype(float)
-    # ebit_sold_change_percent = round(((ebit_sold_this_year - ebit_sold_last_year) / ebit_sold_last_year * 100), 1)
-    # ebit_sold_change_percent = str(ebit_sold_change_percent) + '%' + ' vs. prior year'
-    # st.metric("EBIT", round(ebit_sold_this_year, 2),delta=ebit_sold_change_percent)
+    data = pd.DataFrame({'last_year': last_year, 'current_year': current_year})
+    print(data)
+    #Create a line chart
+    c2.line_chart(data)
+    #operating_profit
+    ebit_sold_last_year = operating_profit[13].astype(float)
+    ebit_sold_this_year = operating_profit[24].astype(float)
+    ebit_sold_change_percent = round(((ebit_sold_this_year - ebit_sold_last_year) / ebit_sold_last_year * 100), 1)
+    ebit_sold_change_percent = str(ebit_sold_change_percent) + '%' + ' vs. prior year'
+    st.metric("EBIT", round(ebit_sold_this_year, 2),delta=ebit_sold_change_percent)
 
-    # #current ratio
-    # curr_ratio_last_year = curr_ratio[13].astype(float)
-    # curr_ratio_this_year = curr_ratio[24].astype(float)
-    # curr_ratiochange_percent = round(((curr_ratio_this_year - curr_ratio_last_year) / curr_ratio_last_year * 100), 1)
-    # curr_ratiochange_percent = str(curr_ratiochange_percent) + '%' + ' vs. prior year'
-    # st.metric("CURRENT RATIO", round(curr_ratio_this_year, 2),delta=curr_ratiochange_percent)
+    #current ratio
+    curr_ratio_last_year = curr_ratio[13].astype(float)
+    curr_ratio_this_year = curr_ratio[24].astype(float)
+    curr_ratiochange_percent = round(((curr_ratio_this_year - curr_ratio_last_year) / curr_ratio_last_year * 100), 1)
+    curr_ratiochange_percent = str(curr_ratiochange_percent) + '%' + ' vs. prior year'
+    st.metric("CURRENT RATIO", round(curr_ratio_this_year, 2),delta=curr_ratiochange_percent)
 
 with c3:
     #calculate income revenue average
@@ -134,27 +134,27 @@ with c3:
     st.line_chart(data=year)
 
 ####################################################################################################
-# with c3:
-#     #gross profit  
-#     gross_profit_last_year = gross_profit[13].astype(float)
-#     gross_profit_this_year = gross_profit[24].astype(float)
-#     gross_profit_change_percent = round(((gross_profit_this_year - gross_profit_last_year) / gross_profit_last_year * 100), 1)
-#     gross_profit_change_percent = str(gross_profit_change_percent) + '%' + ' vs. prior year'
-#     st.metric("GROSS PROFIT", round(gross_profit_this_year, 2),delta=gross_profit_change_percent)
+with c3:
+    #gross profit  
+    gross_profit_last_year = gross_profit[13].astype(float)
+    gross_profit_this_year = gross_profit[24].astype(float)
+    gross_profit_change_percent = round(((gross_profit_this_year - gross_profit_last_year) / gross_profit_last_year * 100), 1)
+    gross_profit_change_percent = str(gross_profit_change_percent) + '%' + ' vs. prior year'
+    st.metric("GROSS PROFIT", round(gross_profit_this_year, 2),delta=gross_profit_change_percent)
 
-#     #net profit
-#     net_profit_last_year = net_profit[13].astype(float)
-#     net_profit_this_year = net_profit[24].astype(float)
-#     net_profit_change_percent = round(((ebit_sold_this_year - ebit_sold_last_year) / ebit_sold_last_year * 100), 1)
-#     net_profit_change_percent = str(ebit_sold_change_percent) + '%' + ' vs. prior year'
-#     st.metric("NET PROFIT", round(ebit_sold_this_year, 2),delta=ebit_sold_change_percent)
+    #net profit
+    net_profit_last_year = net_profit[13].astype(float)
+    net_profit_this_year = net_profit[24].astype(float)
+    net_profit_change_percent = round(((ebit_sold_this_year - ebit_sold_last_year) / ebit_sold_last_year * 100), 1)
+    net_profit_change_percent = str(ebit_sold_change_percent) + '%' + ' vs. prior year'
+    st.metric("NET PROFIT", round(ebit_sold_this_year, 2),delta=ebit_sold_change_percent)
 
-#     #acount receivable
-#     account_receivable_last_year = account_receivable[13].astype(float)
-#     account_receivable_this_year = account_receivable[24].astype(float)
-#     account_receivable_change_percent = round(((account_receivable_this_year - account_receivable_last_year) / account_receivable_last_year * 100), 1)
-#     account_receivable_change_percent = str(account_receivable_change_percent) + '%' + ' vs. prior year'
-#     st.metric("ACCOUNT RECEIVABLE", round(account_receivable_this_year, 2),delta=account_receivable_change_percent)
+    #acount receivable
+    account_receivable_last_year = account_receivable[13].astype(float)
+    account_receivable_this_year = account_receivable[24].astype(float)
+    account_receivable_change_percent = round(((account_receivable_this_year - account_receivable_last_year) / account_receivable_last_year * 100), 1)
+    account_receivable_change_percent = str(account_receivable_change_percent) + '%' + ' vs. prior year'
+    st.metric("ACCOUNT RECEIVABLE", round(account_receivable_this_year, 2),delta=account_receivable_change_percent)
 ####################################################################################################
 with c4:
     #calculate income revenue average
